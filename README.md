@@ -5,4 +5,4 @@ tampilan entry
 tampilan sesudah entry
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0e960d34-3cb2-4768-8328-606968fb9c6e" />
 Tampilan DataBase
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fc5887be-51a3-44ed-aef3-2b3abf809ee1" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d9ccc12d-735b-4427-91ca-760c7abbca04" />
