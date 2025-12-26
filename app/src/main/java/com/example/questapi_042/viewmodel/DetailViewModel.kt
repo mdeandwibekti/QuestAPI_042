@@ -1,2 +1,22 @@
 package com.example.questapi_042.viewmodel
 
+import android.annotation.SuppressLint
+import retrofit2.HttpException
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.questapi_042.modeldata.DataSiswa
+import com.example.questapi_042.repositori.RepositoryDataSiswa
+import com.example.questapi_042.uicontroller.route.DestinasiDetail
+import kotlinx.coroutines.launch
+import okio.IOException
+import retrofit2.Response
+
+sealed interface StatusUIDetail{
+    data class Success(val satusiswa: DataSiswa) : StatusUIDetail
+    object Error : StatusUIDetail
+    object Loading : StatusUIDetail
+}
