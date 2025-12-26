@@ -77,4 +77,46 @@ fun DetailSiswaScreen(
             }
         },
         modifier = modifier
+    ) { innerPadding ->
+        val coroutineScope = rememberCoroutineScope()
+        BodyDetailDataSiswa(
+            statusUiDetail = viewModel.statusUIDetail,
+            onDelete = {
+                coroutineScope.launch {
+                    viewModel.hapusSatuSiswa()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+        )
+    }
+}
+
+@Composable
+private fun BodyDetailDataSiswa(
+    statusUiDetail: StatusUIDetail,
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
+        verticalArrangement = Arrangement.spacedBy(
+            dimensionResource(id = R.dimen.padding_medium)
+        )
     ) {
+        var deleteConfirmationRequired by rememberSaveable {
+            mutableStateOf(false)
+        }
+
+        when (statusUiDetail) {
+            is StatusUIDetail.Success -> {
+                DetailDataSiswa(
+                    siswa = statusUiDetail.satusiswa,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+            else -> {}
+        }
+
